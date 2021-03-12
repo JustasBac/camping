@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <div id="cluster-map"></div>
+
+    <ul>
+        <h1>All Campgrounds</h1>
+        <% for(let campground of campgrounds) { %>
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide img-fluid" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <% campground.images.forEach((img, i)=> { %>
+                                    <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                                        <img src="<%= img.url %>" class="d-block w-100" alt="">
+                                    </div>
+                                    <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= campground.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= campground.description %>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <%= campground.location %>
+                                </small>
+                            </p>
+                            <a href="/campgrounds/<%= campground._id %>" class="btn btn-secondary">View <%=
+                                    campground.title %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </ul>
+    <script>
+        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+        const campgrounds = {
+            features: <%- JSON.stringify(campgrounds) %> //features' reikia nes originaliai is clusterMap ateina duomenis apie eartquakus
+        }
+    </script>
+    <script src="/javascripts/clusterMap.js"></script>

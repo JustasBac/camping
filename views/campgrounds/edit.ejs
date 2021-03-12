@@ -1,0 +1,75 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <div class="row">
+        <h1 class="text-center">Edit the Campground</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title of the camp:</label>
+                    <input type="text" name="campground[title]" value="<%= campground.title %>" id="title" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Title is missing!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location of the camp:</label>
+                    <input type="text" name="campground[location]" value="<%= campground.location %>" id="location" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Location is missing!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload picture(-s):</label>
+                    <input type="file" class="form-control" id="image" name="image" multiple />
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">€</span>
+                        <input type="text" name="campground[price]" class="form-control" value="<%= campground.price %>" id="price" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Enter a price!
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea type="text" name="campground[description]" id="description" class="form-control" required><%= campground.description %></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        There is no description added!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <% campground.images.forEach(function(img, i) {%>
+                        <img src="<%= img.thumbnail %> " alt="" class="img-thumbnail">
+                        <!--sukurta img.thumbnail naudojant mongoose virtual (campground.js models) -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="image-<%= i %>" name="deleteImages[]" value="<%=img.filename%>">
+                            <label class="form-check-label" for="image-<%= i %>">Delete</label>
+                        </div>
+                        <% }) %>
+                </div>
+                <!-- <div>
+                    <label for="description">Description of the camp:</label>
+                    <input type="text" name="campground[description]" placeholder="description" id="description">
+                </div>
+                <div>
+                    <label for="price">Price per night:</label>
+                    <input type="text" name="campground[price]" placeholder="price" id="price">
+                </div> -->
+                <div class="mb-3"><button class="btn btn-success">Update</button></div>
+            </form>
+            <a href="/campgrounds/<%= campground._id %>">Go back</a>
+        </div>
+    </div>

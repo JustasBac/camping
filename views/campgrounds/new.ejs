@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate.ejs') %>
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title of the camp:</label>
+                    <input type="text" name="campground[title]" placeholder="title" id="title" class="form-control" required />
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Title is missing!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location of the camp:</label>
+                    <input type="text" name="campground[location]" placeholder="location" id="location" class="form-control mapboxgl-ctrl-geocoder-input" required />
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Location is missing!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">€</span>
+                        <input type="text" name="campground[price]" class="form-control" placeholder="0" id="price" required />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Enter a price!</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea type="text" name="campground[description]" placeholder="Description" id="description" class="form-control" required></textarea>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">There is no description added!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload picture(-s):</label>
+                    <input type="file" class="form-control" id="image" name="image" multiple />
+                </div>
+
+                <!-- <div>
+                    <label for="description">Description of the camp:</label>
+                    <input type="text" name="campground[description]" placeholder="description" id="description">
+                </div>
+                <div>
+                    <label for="price">Price per night:</label>
+                    <input type="text" name="campground[price]" placeholder="price" id="price">
+                </div> -->
+                <div class="mb-3">
+                    <button class="btn btn-success">Add campground</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Go back</a>
+        </div>
+    </div>
