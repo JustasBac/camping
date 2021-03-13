@@ -24,10 +24,6 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label">Upload picture(-s):</label>
-                    <input type="file" class="form-control" id="image" name="image" multiple />
-                </div>
-                <div class="mb-3">
                     <label for="price" class="form-label">Price:</label>
                     <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">€</span>
@@ -51,6 +47,10 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    <label for="image" class="form-label">Upload picture(-s):</label>
+                    <input type="file" class="form-control" id="image" name="image" multiple />
+                </div>
+                <div class="mb-3">
                     <% campground.images.forEach(function(img, i) {%>
                         <img src="<%= img.thumbnail %> " alt="" class="img-thumbnail">
                         <!--sukurta img.thumbnail naudojant mongoose virtual (campground.js models) -->
@@ -68,7 +68,7 @@
                     <label for="price">Price per night:</label>
                     <input type="text" name="campground[price]" placeholder="price" id="price">
                 </div> -->
-                <div class="mb-3"><button class="btn btn-success">Update</button></div>
+                <div class="mb-3"><button class="btn btn-success">Save</button></div>
             </form>
             <a href="/campgrounds/<%= campground._id %>">Go back</a>
         </div>
