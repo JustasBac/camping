@@ -13,6 +13,10 @@ ImageSchema.virtual('thumbnail').get(function() {
     return this.url.replace('/upload', '/upload/w_200'); //https://res.cloudinary.com/dfx4mjv8p/image/upload/w_200/v1615239431/Campito/j3slehnk6xunuec94dqi.jpg. Originalus failas be /w_200
 });
 
+ImageSchema.virtual('sumazinta').get(function() {
+    return this.url.replace('/upload', '/upload/c_lpad,h_431,w_616');
+});
+
 const opts = { toJSON: { virtuals: true } };
 
 const CampgroundSchema = new Schema({

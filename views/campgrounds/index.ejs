@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate.ejs') %>
     <div id="cluster-map"></div>
     <ul>
-        <div class="container-md">
+        <div class="container-md mt-4">
             <h1>All Campgrounds</h1>
             <% for(let campground of campgrounds) { %>
                 <div class="card mb-3">
@@ -11,7 +11,7 @@
                                 <div class="carousel-inner">
                                     <% campground.images.forEach((img, i)=> { %>
                                         <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-                                            <img src="<%= img.url %>" class="d-block w-100" alt="">
+                                            <img src="<%= img.sumazinta %>" class="d-block w-100" alt="">
                                         </div>
                                         <% }) %>
                                 </div>
