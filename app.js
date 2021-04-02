@@ -147,11 +147,13 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/fakeUser', async(req, res) => {
-    const user = new User({ email: 'justas@getMaxListeners.com', username: 'Justas' });
-    const newUser = await User.register(user, 'slaptazodyys');
-    res.send(newUser)
-})
+// app.get('/fakeUser', async(req, res) => {
+//     const user = new User({ email: 'justas@getMaxListeners.com', username: 'Justas' });
+//     const newUser = await User.register(user, 'slaptazodyys');
+//     res.send(newUser)
+// })
+
+
 
 app.use("/", userRoutes)
 app.use("/campgrounds", campgroundRoutes)

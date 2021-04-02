@@ -16,6 +16,9 @@ router.route('/login')
 
 router.get('/logout', users.logout)
 
+router.get('/opa', (req, res) => {
+    res.render('opa')
+})
 
 
 module.exports = router;
