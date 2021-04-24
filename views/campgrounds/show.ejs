@@ -28,8 +28,7 @@
                                         </div>
                                         <% if(campground.images.length> 1) { %>
                                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span
-                class="carousel-control-prev-icon"
+              <span class="carousel-control-prev-icon"
                 aria-hidden="true"
               ></span>
               <span class="visually-hidden">Previous</span>
@@ -158,7 +157,7 @@
       <button class="btn btn-success">Add a review</button>
     </form>
     <% } %> <% for(let review of campground.reviews) { %>
-    <div class="mb-3">
+    <div class="my-3">
       <div class="card">
         <div class="card-header text-muted">
           Added by <%= review.author.username %>
