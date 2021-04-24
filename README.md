@@ -1,4 +1,4 @@
-# Camping sharing website
+# Camp sharing website
 
 Hi!
 
